@@ -1,0 +1,533 @@
+HTML
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet d'Avenir — Cheffe de Projets Événementiels & Communication</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #3b82f6;
+            --accent: #0d9488;
+            --bg-dark: #0f172a;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* --- Header & Nav --- */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-light);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(135deg, var(--bg-dark), var(--primary));
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        /* --- Layout & Container --- */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        /* --- Grid & Cards --- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        .card-highlight {
+            border-left: 4px solid var(--accent);
+        }
+
+        /* --- Tables --- */
+        .table-responsive {
+            overflow-x: auto;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 0.85rem 1.2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background-color: var(--bg-light);
+            color: var(--primary);
+            font-weight: 650;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* --- Visual Section --- */
+        .visual-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .visual-img {
+            width: 100%;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+
+        /* --- Timeline / Lifecycle --- */
+        .lifecycle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1rem;
+        }
+
+        .step-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.2rem;
+            position: relative;
+        }
+
+        .step-number {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+        }
+
+        /* --- Citation styling --- */
+        .cite {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            vertical-align: super;
+            font-weight: 600;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--bg-dark);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .visual-card {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Projet d'Avenir — M1</div>
+            <ul class="nav-links">
+                <li><a href="#definition">Définition & Référentiels</a></li>
+                <li><a href="#cycle">Cycle de Vie</a></li>
+                <li><a href="#competences">Compétences Clés</a></li>
+                <li><a href="#portfolio">Plan Portfolio</a></li>
+                <li><a href="#visuel">Illustration Métier</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge">Master 1 École de Commerce — Projet Professionnel</span>
+            <h1>Cheffe de Projets Événementiels & Communication</h1>
+            <p>L'intermédiaire stratégique, opérationnel et humain des organisations. Analyse globale, référentiels APEC & France Travail 2026 et plan d'acquisition de compétences.</p>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <!-- SECTION 1 : DEFINITION ET MARCHE -->
+        <section id="definition">
+            <h2 class="section-title">1. Référentiels Métier & Positionnement</h2>
+            <p style="margin-bottom: 1.5rem;">
+                La cheffe de projet transforme un objectif stratégique (notoriété, relation client, lancement) en un dispositif concret, maîtrisé et mesurable <span class="cite">[cite: 3]</span>. Elle agit principalement en <strong>management transversal</strong>, sans autorité hiérarchique directe <span class="cite">[cite: 1, 2]</span>.
+            </p>
+
+            <div class="grid-2" style="margin-bottom: 2rem;">
+                <div class="card card-highlight">
+                    <h3>France Travail (Codes ROME : M1805, M1402, M1803) <span class="cite">[cite: 2]</span></h3>
+                    <p>Concevoir, organiser et coordonner la réalisation d'un projet du cadrage au déploiement final <span class="cite">[cite: 2]</span>. Focus sur la chaîne critique, la gestion des risques, la sécurité, le budget et la coordination des moyens humains/matériels <span class="cite">[cite: 2, 3]</span>.</p>
+                </div>
+                <div class="card card-highlight">
+                    <h3>APEC (Statut Cadre — Ingénierie & Transformation) <span class="cite">[cite: 2]</span></h3>
+                    <p>Alignement continu sur la stratégie globale et recherche du retour sur investissement (ROI) <span class="cite">[cite: 2]</span>. Négociation des ressources et conduite proactive du changement <span class="cite">[cite: 2]</span>.</p>
+                </div>
+            </div>
+
+            <h3 style="margin-bottom: 1rem; color: var(--primary);">Grille de Rémunération & Perspectives (Secteur Privé - France) <span class="cite">[cite: 2]</span></h3>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Niveau d'Expérience</th>
+                            <th>Fourchette Salaire Brut Annuel</th>
+                            <th>Statut / Responsabilités</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Jeune Diplômée (0 à 3 ans)</strong></td>
+                            <td>35 000 € – 42 000 € <span class="cite">[cite: 1, 2]</span> <em>(Moyenne APEC : 38 000 €) <span class="cite">[cite: 3]</span></em></td>
+                            <td>Projets à périmètre limité ou rôle d'Assistant PMO / Cheffe de projet junior <span class="cite">[cite: 2]</span>.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Confirmée (3 à 8 ans)</strong></td>
+                            <td>43 000 € – 58 000 € <span class="cite">[cite: 2]</span></td>
+                            <td>Gestion de projets complexes, budgets multi-moyens, autonomie complète <span class="cite">[cite: 2]</span>.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Senior / Lead (8+ ans)</strong></td>
+                            <td>60 000 € – 85 000 €+ <span class="cite">[cite: 2]</span></td>
+                            <td>Projets stratégiques, programmes d'envergure, encadrement d’équipes <span class="cite">[cite: 2]</span>.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECTION 2 : CYCLE DE VIE -->
+        <section id="cycle">
+            <h2 class="section-title">2. Cycle de Vie d'un Projet & Déroulé Opérationnel</h2>
+            <p style="margin-bottom: 1.5rem;">Structuré selon les standards PMBOK et décomposé en 8 étapes clés de production <span class="cite">[cite: 2, 3]</span> :</p>
+            
+            <div class="lifecycle-grid">
+                <div class="step-card">
+                    <div class="step-number">Phase 1 — Cadrage</div>
+                    <h4>Brief & Faisabilité</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem;">Analyse du besoin, Charte Projet, CDC et définition des KPIs décisionnels <span class="cite">[cite: 2, 3]</span>.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">Phase 2 — Conception</div>
+                    <h4>Concept & Expérience</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem;">Scénographie, moodboard, story-telling et premières estimations budgétaires <span class="cite">[cite: 3]</span>.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">Phase 3 — Planification</div>
+                    <h4>WBS & Rétroplanning</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem;">Diagramme de Gantt, matrice RACI, budget prévisionnel et plan de gestion des risques <span class="cite">[cite: 1, 2, 3]</span>.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">Phase 4 — Consultation</div>
+                    <h4>Achats & Négociation</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem;">Appels d'offres, comparaison de devis (au moins 3) et sélection des prestataires <span class="cite">[cite: 1, 3]</span>.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">Phase 5 — Communication</div>
+                    <h4>Plan Médias & Relais</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem;">Calendrier éditorial, invitations, gestion des réseaux sociaux et RP <span class="cite">[cite: 1, 3]</span>.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">Phase 6 — Production</div>
+                    <h4>Logistique & Briefs</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem;">Conducteur technique, feuilles de route prestataires et repérages <span class="cite">[cite: 3]</span>.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">Phase 7 — Pilotage Jour J</div>
+                    <h4>Exécution & Arbitrage</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem;">Coordination terrain, gestion des imprévus et application des Plans B <span class="cite">[cite: 1, 3]</span>.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">Phase 8 — Clôture</div>
+                    <h4>REX & Mesure du ROI</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem;">Bilan financier, analyse des écarts, questionnaires de satisfaction et rapport d'impact <span class="cite">[cite: 1, 2, 3]</span>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3 : COMPETENCES & OUTILS -->
+        <section id="competences">
+            <h2 class="section-title">3. Matrice de Compétences & Tendance 2026</h2>
+            
+            <div class="grid-3" style="margin-bottom: 2rem;">
+                <div class="card">
+                    <h3>1. Planification & Anticipation <span class="cite">[cite: 1]</span></h3>
+                    <p style="font-size: 0.9rem;">Structure de découpage (WBS), diagrammes de Gantt, chemin critique et plans de contingence (Plan B) <span class="cite">[cite: 1, 2]</span>.</p>
+                </div>
+                <div class="card">
+                    <h3>2. Budget & Négociation <span class="cite">[cite: 1]</span></h3>
+                    <p style="font-size: 0.9rem;">Elaboration de budgets prévisionnels sous Excel, calcul de marges, suivi des écarts (EVM) et négociation tarifaire <span class="cite">[cite: 1, 2]</span>.</p>
+                </div>
+                <div class="card">
+                    <h3>3. Leadership Transversal <span class="cite">[cite: 1]</span></h3>
+                    <p style="font-size: 0.9rem;">Influence sans autorité directe, communication interpersonnelle, rédaction de briefs limpides et résolution de conflits <span class="cite">[cite: 1, 2]</span>.</p>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Compétences Émergentes & Durabilité</h3>
+                    <ul style="padding-left: 1.2rem; font-size: 0.9rem;">
+                        <li><strong>RSE & Norme ISO 20121:2024 :</strong> Éco-conception dès le brief, mobilité douce, achats responsables, sobriété numérique et inclusion <span class="cite">[cite: 1, 3]</span>.</li>
+                        <li><strong>Esprit Critique face à l'IA :</strong> Intégration raisonnée des IA génératives (prompts d'idéation, comptes-rendus, plannings) sans déléguer le jugement créatif <span class="cite">[cite: 1, 3]</span>.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Écosystème d'Outils à Maîtriser</h3>
+                    <ul style="padding-left: 1.2rem; font-size: 0.9rem;">
+                        <li><strong>Gestion de projet :</strong> Asana, Trello, Monday, Notion, Jira <span class="cite">[cite: 1, 2, 3]</span>.</li>
+                        <li><strong>Analyse & Finance :</strong> Excel (TCD, formules d'écart) / Google Sheets <span class="cite">[cite: 1, 3]</span>.</li>
+                        <li><strong>Communication & Pitch :</strong> PowerPoint, Canva, Teams, Slack <span class="cite">[cite: 1, 3]</span>.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4 : FEUILLE DE ROUTE PORTFOLIO -->
+        <section id="portfolio">
+            <h2 class="section-title">4. Feuille de Route d'Acquisition & Matrice Portfolio</h2>
+            <p style="margin-bottom: 1.5rem;">Matrice de développement des livrables à intégrer sur un portfolio professionnel (GitHub/Site Web) <span class="cite">[cite: 1, 3]</span> :</p>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Priorité</th>
+                            <th>Compétence Cible</th>
+                            <th>Action Concrète</th>
+                            <th>Livrable / Preuve au Portfolio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1</strong></td>
+                            <td>Gestion de Projet <span class="cite">[cite: 1, 3]</span></td>
+                            <td>Piloter un projet étudiant/associatif de A à Z <span class="cite">[cite: 1, 3]</span></td>
+                            <td>Diagramme de Gantt, matrice RACI & plan de gestion des risques <span class="cite">[cite: 1, 3]</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>2</strong></td>
+                            <td>Budget & Coûts <span class="cite">[cite: 1, 3]</span></td>
+                            <td>Construire l'analyse financière d'un événement <span class="cite">[cite: 1, 3]</span></td>
+                            <td>Budget prévisionnel Excel (formules actives & calcul d'écarts) <span class="cite">[cite: 1, 3]</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>3</strong></td>
+                            <td>Communication <span class="cite">[cite: 1, 3]</span></td>
+                            <td>Stratégie de communication multi-canal <span class="cite">[cite: 1, 3]</span></td>
+                            <td>Plan média, calendrier éditorial & maquettes (Canva) <span class="cite">[cite: 1, 3]</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>4</strong></td>
+                            <td>Négociation <span class="cite">[cite: 1, 3]</span></td>
+                            <td>Simuler une consultation de prestataires <span class="cite">[cite: 1, 3]</span></td>
+                            <td>Tableau comparatif multicritères (3 devis) & argumentaire <span class="cite">[cite: 1, 3]</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>5</strong></td>
+                            <td>Pilotage Data <span class="cite">[cite: 1, 3]</span></td>
+                            <td>Évaluer la performance post-événement <span class="cite">[cite: 1, 3]</span></td>
+                            <td>Dashboard de performance (NPS, ROI, taux de satisfaction) <span class="cite">[cite: 1, 3]</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>6</strong></td>
+                            <td>RSE <span class="cite">[cite: 1, 3]</span></td>
+                            <td>Intégrer les exigences durables (ISO 20121) <span class="cite">[cite: 1, 3]</span></td>
+                            <td>Matrice d'impact RSE (mobilité douce, éco-conception) <span class="cite">[cite: 1, 3]</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>7</strong></td>
+                            <td>Pratique de l'IA <span class="cite">[cite: 1, 3]</span></td>
+                            <td>Optimiser la productivité par l'IA <span class="cite">[cite: 1, 3]</span></td>
+                            <td>Workflow documenté : des prompts au cadrage final <span class="cite">[cite: 1, 3]</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card card-highlight" style="margin-top: 1.5rem;">
+                <h3>Outil Clé Recommandé : L'Event Project Canvas</h3>
+                <p style="font-size: 0.95rem;">
+                    Concevoir un <strong>Event Project Canvas</strong> synthétique pour le portfolio permet d'associer en un coup d'œil la stratégie (objectifs SMART, cibles), la création (concept, scénographie) et la rigueur opérationnelle (budget, rétroplanning, KPIs, grille RSE) <span class="cite">[cite: 1, 3]</span>.
+                </p>
+            </div>
+        </section>
+
+        <!-- SECTION 5 : VISUEL DU METIER -->
+        <section id="visuel">
+            <h2 class="section-title">5. Illustration du Métier sur le Terrain</h2>
+            
+            <div class="visual-card">
+                <div>
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Posture & Environnement de Travail</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 1rem;">
+                        L’illustration ci-contre récapitule les trois dimensions centrales observées sur le terrain :
+                    </p>
+                    <ul style="padding-left: 1.2rem; font-size: 0.9rem; color: var(--text-muted);">
+                        <li style="margin-bottom: 0.5rem;"><strong>Planification visuelle :</strong> Suivi des jalons et de la chaîne critique sur tableau de bord d'équipe (<em>Event Roadmap Q4</em>).</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Maîtrise budgétaire :</strong> Pilotage financier en temps réel sur tableur (<em>Budget Overview</em>).</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Collaboration & Leadership :</strong> Animation transversale des réunions d'équipe et relation avec les parties prenantes.</li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="cheffe_projet_competences_visual_v2.png" alt="Cheffe de projets événementiel dans son environnement de travail" class="visual-img">
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>Projet d'Avenir M1 — École de Commerce | Dossier Cheffe de Projets Événementiels & Communication</p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.7;">Sources : APEC (2026), France Travail (ROME M1805/M1402/M1803), Norme ISO 20121:2024, Observatoire UNIMEV <span class="cite">[cite: 1, 2, 3]</span>.</p>
+    </footer>
+
+</body>
+</html>
