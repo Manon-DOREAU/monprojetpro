@@ -266,6 +266,290 @@
                 display: none;
             }
         }
+        /* =========================
+   SECTION 6 — PODCAST
+========================= */
+
+.podcast-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 18px;
+}
+
+.podcast-player {
+  padding: 32px;
+  background: var(--navy);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 390px;
+}
+
+.podcast-number,
+.music-number {
+  color: var(--gold);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.podcast-icon {
+  width: 72px;
+  height: 72px;
+  margin: 28px 0 22px;
+  border-radius: 22px;
+  background: #fff;
+  color: var(--navy);
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+}
+
+.podcast-player h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.9rem;
+  line-height: 1.1;
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+
+.podcast-player p {
+  margin: 0 0 22px;
+  color: #c7d0db;
+}
+
+.podcast-player audio,
+.music-player audio {
+  width: 100%;
+}
+
+.podcast-content {
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.podcast-content h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+  line-height: 1.1;
+  font-weight: 500;
+  margin: 10px 0 18px;
+}
+
+.podcast-content p {
+  color: var(--muted);
+  margin: 0 0 15px;
+}
+
+.podcast-highlight {
+  margin-top: 18px;
+  padding: 18px;
+  border-left: 3px solid var(--gold);
+  background: #f5f1e9;
+}
+
+.podcast-highlight strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.podcast-highlight span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+
+/* =========================
+   SECTION 7 — MUSIQUE
+========================= */
+
+.music-layout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.music-visual {
+  min-height: 380px;
+  border-radius: var(--radius);
+  background: #17334f;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.music-disc {
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  background:
+    repeating-radial-gradient(
+      circle,
+      #172f48 0,
+      #172f48 3px,
+      #244867 4px,
+      #244867 6px
+    );
+  display: grid;
+  place-items: center;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.music-disc-center {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 1.8rem;
+}
+
+.music-lines {
+  position: absolute;
+  bottom: 28px;
+  left: 28px;
+  right: 28px;
+  display: flex;
+  align-items: end;
+  gap: 7px;
+  height: 50px;
+}
+
+.music-lines span {
+  flex: 1;
+  border-radius: 999px 999px 0 0;
+  background: var(--gold);
+  opacity: 0.75;
+}
+
+.music-lines span:nth-child(1) {
+  height: 35%;
+}
+
+.music-lines span:nth-child(2) {
+  height: 65%;
+}
+
+.music-lines span:nth-child(3) {
+  height: 100%;
+}
+
+.music-lines span:nth-child(4) {
+  height: 52%;
+}
+
+.music-lines span:nth-child(5) {
+  height: 78%;
+}
+
+.music-player {
+  padding: 38px;
+  color: var(--ink);
+}
+
+.music-player h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  font-size: 2.8rem;
+  line-height: 1;
+  margin: 14px 0 8px;
+}
+
+.music-player p {
+  color: var(--muted);
+  margin: 0 0 26px;
+}
+
+.music-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.music-tags span {
+  background: #f2eee7;
+  color: var(--ink);
+  padding: 7px 11px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+}
+
+.music-message {
+  margin-top: 18px;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 35px;
+}
+
+.music-message h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  font-size: 1.9rem;
+  line-height: 1.1;
+  margin: 8px 0 0;
+}
+
+.music-message p {
+  margin: 0;
+  color: #c7d0db;
+}
+
+
+/* =========================
+   RESPONSIVE PODCAST / MUSIQUE
+========================= */
+
+@media (max-width: 900px) {
+
+  .podcast-layout,
+  .music-layout,
+  .music-message {
+    grid-template-columns: 1fr;
+  }
+
+  .music-visual {
+    min-height: 300px;
+  }
+
+}
+
+
+@media (max-width: 620px) {
+
+  .podcast-player,
+  .podcast-content,
+  .music-player,
+  .music-message {
+    padding: 24px;
+  }
+
+  .podcast-player h3 {
+    font-size: 1.55rem;
+  }
+
+  .music-player h3 {
+    font-size: 2.2rem;
+  }
+
+  .music-disc {
+    width: 180px;
+    height: 180px;
+  }
+
+}
     </style>
 </head>
 <body>
@@ -514,7 +798,189 @@
                 </div>
             </div>
         </section>
+<!-- =========================
+     SECTION 6 — PODCAST
+========================= -->
 
+<section id="podcast">
+  <div class="container">
+
+    <div class="section-head">
+      <div>
+        <div class="kicker">06 · Mon podcast</div>
+        <h2>Diriger des millions<br>sans pouvoir hiérarchique.</h2>
+      </div>
+
+      <p class="section-intro">
+        Un podcast consacré à une compétence essentielle du métier :
+        savoir coordonner, convaincre et fédérer des acteurs différents
+        sans disposer d'une autorité hiérarchique directe.
+      </p>
+    </div>
+
+
+    <div class="podcast-layout">
+
+      <div class="panel podcast-player">
+
+        <div class="podcast-number">
+          PODCAST · 01
+        </div>
+
+        <div class="podcast-icon">
+          🎙
+        </div>
+
+        <h3>
+          Diriger des millions sans pouvoir hiérarchique
+        </h3>
+
+        <p>
+          Écouter le podcast
+        </p>
+
+        <audio controls preload="metadata">
+          <source
+            src="audio/Diriger_des_millions_sans_pouvoir_hierarchique.m4a"
+            type="audio/mp4"
+          >
+          Votre navigateur ne prend pas en charge la lecture audio.
+        </audio>
+
+      </div>
+
+
+      <div class="panel podcast-content">
+
+        <div class="kicker">Pourquoi ce sujet ?</div>
+
+        <h3>
+          Le leadership ne repose pas uniquement
+          sur l'autorité.
+        </h3>
+
+        <p>
+          Dans la gestion de projet, la cheffe de projet doit faire
+          travailler ensemble des personnes qui ne dépendent pas
+          nécessairement d'elle hiérarchiquement.
+        </p>
+
+        <p>
+          Elle doit donc créer de l'adhésion, clarifier les objectifs,
+          négocier les priorités, communiquer efficacement et maintenir
+          la motivation collective jusqu'à la réalisation du projet.
+        </p>
+
+        <div class="podcast-highlight">
+          <strong>Une compétence au cœur du métier</strong>
+          <span>
+            Communication · influence · négociation · coordination ·
+            leadership transversal
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =========================
+     SECTION 7 — MUSIQUE
+========================= -->
+
+<section id="musique" class="dark">
+  <div class="container">
+
+    <div class="section-head">
+      <div>
+        <div class="kicker">07 · Ma création</div>
+        <h2>Du brief au jour J.</h2>
+      </div>
+
+      <p class="section-intro">
+        Une création musicale qui accompagne symboliquement le parcours
+        d'un projet, de sa conception jusqu'à sa réalisation.
+      </p>
+    </div>
+
+
+    <div class="music-layout">
+
+      <div class="music-visual">
+        <div class="music-disc">
+          <div class="music-disc-center">♪</div>
+        </div>
+
+        <div class="music-lines">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+
+      <div class="panel music-player">
+
+        <div class="music-number">
+          CRÉATION MUSICALE · 01
+        </div>
+
+        <h3>
+          Du brief au jour J
+        </h3>
+
+        <p>
+          Ma création musicale
+        </p>
+
+        <audio controls preload="metadata">
+          <source
+            src="audio/Du_brief_au_jour_J.mp3"
+            type="audio/mpeg"
+          >
+          Votre navigateur ne prend pas en charge la lecture audio.
+        </audio>
+
+        <div class="music-tags">
+          <span>Créativité</span>
+          <span>Projet</span>
+          <span>Événementiel</span>
+          <span>Création</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="panel music-message">
+
+      <div>
+        <div class="kicker">De l'idée à la réalisation</div>
+
+        <h3>
+          Un projet comme une composition.
+        </h3>
+      </div>
+
+      <p>
+        Comme un projet événementiel, une création musicale part
+        d'une intention et se construit progressivement : le brief,
+        la préparation, les ajustements, puis le moment où tout prend
+        forme. Cette création illustre ainsi une autre dimension de
+        mon projet professionnel : associer organisation, créativité
+        et expérience.
+      </p>
+
+    </div>
+
+  </div>
+</section>
     </div>
 
     <footer>
